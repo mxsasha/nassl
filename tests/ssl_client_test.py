@@ -217,6 +217,8 @@ class TestModernSslClientOnline:
 
             # And when requesting the verified certificate chain, it returns it
             assert ssl_client.get_verified_chain()
+
+            assert ssl_client.get_peer_signature_nid() == OpenSslDigestNidEnum.SHA256
         finally:
             ssl_client.shutdown()
 
