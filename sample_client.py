@@ -94,6 +94,10 @@ def main():
         print("\nEphemeral Key")
         print(ssl_client.get_ephemeral_key())
 
+        if hasattr(ssl_client, "get_group_name"):
+            print("\nGroup name")
+            print(ssl_client.get_group_name())
+
         print("\nHTTP response")
         ssl_client.write(f"GET / HTTP/1.0\r\nUser-Agent: Test\r\nHost: {hostname}\r\n\r\n".encode("ascii"))
         print(ssl_client.read(2048))
